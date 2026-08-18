@@ -21,103 +21,120 @@ export const navLinks = [
 ];
 
 export type Service = {
+  image: string;
   slug: string;
   title: string;
   shortDescription: string;
   description: string;
   scope: string[];
   icon: string; // simple label used to pick an icon in ServiceIcon
+  features: string[]; // key features of the service, used in the Services page
 };
+
+
 
 export const services: Service[] = [
   {
-    slug: "fit-out-interior-design",
-    title: "Fit-Out & Interior Design",
-    shortDescription:
-      "End-to-end fit-out solutions from design to completion, for commercial and residential spaces.",
-    description:
-      "We deliver comprehensive fit-out solutions from concept to handover, covering both domestic and commercial sectors. Every project is handled with the required authority approvals, so your space is compliant from day one.",
+    slug: "interior-fit-out",
+    title: "Interior Fit-Out",
+    icon: "building",
+    shortDescription: "Full interior fit-out services for commercial and residential spaces.",
+    description: "Complete interior fit-out solutions including partitions, ceilings, flooring, and finishes. We handle everything from concept to handover.",
+    features: ["Space Planning", "Partitioning", "Ceilings", "Flooring"],
     scope: [
-      "Offices & corporate spaces",
-      "Supermarkets & retail shops",
-      "Restaurants & F&B outlets",
-      "Warehouses & industrial units",
-      "Villas & apartments",
-      "Hospitals & clinics",
-      "Schools & educational spaces",
-      "Kiosks & pop-up units",
+      "Space planning and layout design",
+      "Partitioning and wall systems",
+      "Suspended ceilings and drywall",
+      "Flooring solutions (tiles, carpets, wood)",
+      "Lighting and electrical works",
+      "Finishes and decorations"
     ],
-    icon: "fitout",
-  },
-  {
-    slug: "drawing-technical-design",
-    title: "Drawing & Technical Design",
-    shortDescription:
-      "CAD drawings, 2D/3D layouts, shop drawings and as-built documentation for approvals and execution.",
-    description:
-      "Every successful fit-out starts with accurate documentation. Our technical design team produces the drawings that take a project from idea to authority approval to on-site execution — precise, coordinated, and ready for the people who build from them.",
-    scope: [
-      "2D layout & space planning drawings",
-      "3D modelling & visualisation",
-      "Shop drawings for execution teams",
-      "As-built drawings",
-      "MEP coordination drawings",
-      "Drawings prepared for authority submission",
-    ],
-    icon: "drawing",
-  },
-  {
-    slug: "civil-maintenance",
-    title: "Civil Maintenance",
-    shortDescription:
-      "Block works, plastering, waterproofing, cladding and general civil maintenance, done right.",
-    description:
-      "Our civil maintenance team is equipped with the tools and experience to handle structural and finishing works of any scale — keeping buildings sound, compliant, and well-presented.",
-    scope: [
-      "Block works & partition works",
-      "Plastering & concreting",
-      "Waterproofing",
-      "Painting works",
-      "Cladding works",
-      "Glass partitions & gypsum works",
-      "Tile works",
-      "Demolition works",
-    ],
-    icon: "civil",
-  },
-  {
-    slug: "carpentry-joinery",
-    title: "Carpentry & Joinery Works",
-    shortDescription:
-      "Custom joinery and carpentry built for durability and a refined finish.",
-    description:
-      "From bespoke joinery to full carpentry packages, we build fixtures that are made to last and finished to match the design intent — not off-the-shelf compromises.",
-    scope: [
-      "Custom joinery & cabinetry",
-      "Wardrobes & storage units",
-      "Reception & counter joinery",
-      "Doors & wood partitions",
-      "Furniture works",
-    ],
-    icon: "joinery",
+    image: "/images/services/interior-fit-out.jpg",
   },
   {
     slug: "mep-works",
-    title: "MEP-Related Works",
-    shortDescription: "A/C ducting and plumbing works integrated into every fit-out.",
-    description:
-      "We coordinate mechanical and plumbing works alongside the fit-out programme so building services are integrated cleanly into the finished space, not bolted on afterward.",
-    scope: ["A/C ducting", "Plumbing works", "MEP coordination with drawings team"],
-    icon: "mep",
+    title: "MEP Works",
+    icon: "wrench",
+    shortDescription: "Mechanical, Electrical, and Plumbing works for complex projects.",
+    description: "Comprehensive MEP solutions including HVAC, electrical systems, plumbing, and fire protection.",
+    features: ["HVAC Systems", "Electrical Wiring", "Plumbing", "Fire Safety"],
+    scope: [
+      "HVAC system design and installation",
+      "Electrical wiring and distribution",
+      "Plumbing and drainage systems",
+      "Fire protection and alarm systems",
+      "Energy efficiency solutions",
+      "Maintenance and servicing"
+    ],
+    image: "/images/services/mep-works.jpg",
   },
   {
-    slug: "painting-aluminum",
-    title: "Painting & Aluminum Works",
-    shortDescription: "Finishing and aluminum works completed to a precise, lasting standard.",
-    description:
-      "Finishing touches make or break a fit-out. Our painting and aluminum teams handle the details that give a space its final, professional look.",
-    scope: ["Interior & exterior painting", "Aluminum works & framing", "Glass & aluminum partitions"],
-    icon: "aluminum",
+    slug: "technical-drawings",
+    title: "Technical Drawings",
+    icon: "file-text",
+    shortDescription: "Detailed technical drawings and 3D renderings for approvals.",
+    description: "Precision technical drawings including floor plans, elevations, sections, and detailed construction documents.",
+    features: ["Floor Plans", "3D Renderings", "Shop Drawings", "As-built Drawings"],
+    scope: [
+      "Architectural floor plans and elevations",
+      "Detailed construction drawings",
+      "3D renderings and visualizations",
+      "Shop drawings for fabrication",
+      "As-built drawings and documentation",
+      "Authority approval submissions"
+    ],
+    image: "/images/services/technical-drawings.jpg",
+  },
+  {
+    slug: "project-management",
+    title: "Project Management",
+    icon: "clipboard",
+    shortDescription: "End-to-end project management from concept to handover.",
+    description: "Full project management services including scheduling, budgeting, quality control, and stakeholder coordination.",
+    features: ["Scheduling", "Budgeting", "Quality Control", "Stakeholder Management"],
+    scope: [
+      "Project planning and scheduling",
+      "Budget management and cost control",
+      "Quality assurance and control",
+      "Stakeholder coordination",
+      "Risk management",
+      "Project handover and closure"
+    ],
+    image: "/images/services/project-management.jpg",
+  },
+  {
+    slug: "fit-out-approvals",
+    title: "Fit-Out Approvals",
+    icon: "check-circle",
+    shortDescription: "Complete approvals and permits for fit-out works in Dubai.",
+    description: "Full approval management including DM, DCD, Trakhees, and all municipality approvals.",
+    features: ["DM Approvals", "DCD Approvals", "Trakhees", "Municipality"],
+    scope: [
+      "Dubai Municipality (DM) approvals",
+      "DCD (Dubai Civil Defense) approvals",
+      "Trakhees approval management",
+      "Municipality permit applications",
+      "Documentation and submissions",
+      "Approval follow-up and coordination"
+    ],
+    image: "/images/services/fit-out-approvals.jpg",
+  },
+  {
+    slug: "joinery",
+    title: "Joinery & Carpentry",
+    icon: "hammer",
+    shortDescription: "Custom joinery and carpentry solutions for unique requirements.",
+    description: "Custom joinery including wardrobes, kitchen cabinets, reception desks, and bespoke furniture.",
+    features: ["Custom Furniture", "Kitchen Cabinets", "Wardrobes", "Reception Desks"],
+    scope: [
+      "Custom furniture design and fabrication",
+      "Kitchen cabinets and wardrobes",
+      "Reception desks and counters",
+      "Bespoke joinery solutions",
+      "Installation and fitting",
+      "Repair and restoration services"
+    ],
+    image: "/images/services/joinery.jpg",
   },
 ];
 
