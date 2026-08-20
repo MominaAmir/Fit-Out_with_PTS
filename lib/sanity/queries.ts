@@ -1,8 +1,63 @@
-// Example GROQ queries for the project's datasets
-export const allServicesQuery = `*[_type == "service"] | order(title asc)`
+import { groq } from 'next-sanity';
 
-export const allProjectsQuery = `*[_type == "project"] | order(completedAt desc)`
+export const PROJECTS_QUERY = groq`
+  *[_type == "project"] | order(year desc, publishedAt desc) {
+    _id,
+    title,
+    slug,
+    sector,
+    category,
+    summary,
+    description,
+    mainImage,
+    gallery,
+    location,
+    year,
+    area,
+    duration,
+    client,
+    servicesProvided,
+    featured,
+    publishedAt
+  }
+`;
 
-export const projectBySlugQuery = `*[_type == "project" && slug.current == $slug][0]`
+export const PROJECT_BY_SLUG_QUERY = groq`
+  *[_type == "project" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    sector,
+    category,
+    summary,
+    description,
+    mainImage,
+    gallery,
+    location,
+    year,
+    area,
+    duration,
+    client,
+    servicesProvided,
+    featured,
+    publishedAt
+  }
+`;
 
-export const allTestimonialsQuery = `*[_type == "testimonial"] | order(_createdAt desc)`
+export const FEATURED_PROJECTS_QUERY = groq`
+  *[_type == "project" && featured == true] | order(year desc)[0...3] {
+    _id,
+    title,
+    slug,
+    sector,
+    summary,
+    mainImage,
+    year
+  }
+`;
+
+export const PROJECT_SLUGS_QUERY = groq`
+  *[_type == "project"] {
+    slug
+  }
+`;

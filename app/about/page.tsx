@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { company, stats, yearsExperience } from "@/lib/data";
-import VideoPlayer from "@/components/VideoPlayer";
 import ScrollIndicator from "@/components/ScrollIndicator";
 
 export const metadata: Metadata = {
@@ -16,7 +15,6 @@ export default function About() {
     <>
       {/* ===== HERO SECTION - STICKY BACKGROUND ===== */}
       <section className="relative overflow-hidden">
-        {/* Sticky Background Image */}
         <div className="absolute inset-0">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-fixed"
@@ -24,18 +22,12 @@ export default function About() {
               backgroundImage: "url('/images/about-hero-bg.png')",
             }}
           />
-          {/* Overlay Gradients */}
           <div className="absolute inset-0 bg-gradient-to-br from-indigo/90 via-indigo/80 to-indigo/95" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
-          
-          {/* Orange accent glow */}
           <div className="absolute -bottom-40 -right-40 h-[600px] w-[600px] rounded-full bg-orange/20 blur-3xl" />
           <div className="absolute -top-40 -left-40 h-[400px] w-[400px] rounded-full bg-orange/10 blur-3xl" />
-          
-          {/* Blueprint grid */}
           <div className="absolute inset-0 blueprint-grid opacity-20" />
           
-          {/* Animated particles - Static version */}
           <div className="absolute inset-0 overflow-hidden opacity-30">
             {[...Array(20)].map((_, i) => (
               <div
@@ -55,10 +47,8 @@ export default function About() {
           </div>
         </div>
 
-        {/* Content */}
         <div className="relative mx-auto max-w-6xl px-6 py-32 md:py-40">
           <div className="max-w-3xl">
-            {/* Badge */}
             <div className="mb-6 inline-block">
               <span className="inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-orange-light backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
@@ -69,7 +59,6 @@ export default function About() {
               </span>
             </div>
 
-            {/* Heading */}
             <h1 className="font-display text-4xl font-semibold text-white md:text-5xl lg:text-6xl">
               {yearsExperience}+ years of building{' '}
               <span className="relative inline-block">
@@ -91,14 +80,11 @@ export default function About() {
               </span>
             </h1>
 
-            {/* Description */}
             <p className="mt-6 text-lg text-white/70 max-w-2xl">
               Power Point Technical Services L.L.C. has been delivering fit-out, drawing and 
               technical contracting works across Dubai since {company.founded}.
             </p>
 
-
-            {/* Scroll indicator - Using client component */}
             <div className="mt-12">
               <ScrollIndicator />
             </div>
@@ -106,84 +92,52 @@ export default function About() {
         </div>
       </section>
 
-      {/* ===== INTRODUCTORY VIDEO SECTION ===== */}
-      <section className="relative overflow-hidden bg-white py-24" id="about-content">
-        <div className="absolute inset-0 blueprint-grid-dim opacity-20" />
-        
-        <div className="relative mx-auto max-w-6xl px-6">
-          <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-            {/* Left Content */}
-            <div>
-              <span className="font-technical text-xs font-medium uppercase tracking-[0.25em] text-orange">
-                Watch Our Story
-              </span>
-              <h2 className="mt-3 font-display text-3xl font-semibold text-ink md:text-4xl">
-                See how we bring{' '}
-                <span className="gradient-text">visions to life</span>
-              </h2>
-              <div className="mt-4 h-px w-16 bg-orange/30" />
-              <p className="mt-6 text-ink/60 leading-relaxed">
-                From concept to completion, watch how our team transforms spaces across Dubai. 
-                See our process, our people, and the quality that sets us apart.
-              </p>
-              
-              <div className="mt-8 space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-orange/10 text-orange">
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-display text-sm font-semibold text-ink">Design & Planning</h4>
-                    <p className="text-sm text-ink/50">Detailed drawings and 3D renderings</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-orange/10 text-orange">
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-display text-sm font-semibold text-ink">Construction & Execution</h4>
-                    <p className="text-sm text-ink/50">Professional fit-out and MEP works</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-orange/10 text-orange">
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-display text-sm font-semibold text-ink">Handover & Support</h4>
-                    <p className="text-sm text-ink/50">Complete project delivery and aftercare</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* ===== VIDEO SECTION - FULL WIDTH ===== */}
+<section className="relative overflow-hidden bg-white py-24" id="about-content">
+  <div className="absolute inset-0 blueprint-grid-dim opacity-20" />
+  
+  <div className="relative mx-auto max-w-6xl px-6">
+    <div className="text-center mb-12">
+      <span className="font-technical text-xs font-medium uppercase tracking-[0.25em] text-orange">
+        Watch Our Story
+      </span>
+      <h2 className="mt-3 font-display text-3xl font-semibold text-ink md:text-4xl">
+        See how we bring <span className="gradient-text">visions to life</span>
+      </h2>
+      <div className="mx-auto mt-4 h-px w-16 bg-orange/30" />
+    </div>
 
-            {/* Right - Video Player */}
-            <div>
-              <VideoPlayer
-                videoId="your-video-id"
-                thumbnail="/images/video-thumbnail.png"
-                title="PTS Introduction Video"
-              />
-              {/* Video Duration Badge */}
-              <div className="mt-4 flex justify-end">
-                <div className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2 shadow-lg">
-                  <svg className="h-3 w-3 text-orange" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-xs font-medium text-ink/60">Watch Video (2:30)</span>
-                </div>
-              </div>
-            </div>
+    <div className="flex flex-col items-center">
+      <div className="relative w-full max-w-md mx-auto">
+        {/* Video Container */}
+        <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-indigo/5">
+          {/* Portrait Video Container */}
+          <div className="aspect-[9/16] max-h-[600px] mx-auto">
+            <video
+              controls
+              playsInline
+              className="h-full w-full object-cover"
+              src="/videos/PTS Advertisemnet Video (1).mp4"
+            >
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
-      </section>
+        
+        {/* Video Info */}
+        <div className="mt-4 flex justify-center gap-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2 shadow-lg">
+            <svg className="h-3 w-3 text-orange" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+            </svg>
+            <span className="text-xs font-medium text-ink/60">PTS Introduction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* ===== ABOUT CONTENT SECTION ===== */}
       <section className="relative overflow-hidden bg-paper py-24">

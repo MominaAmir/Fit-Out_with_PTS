@@ -49,7 +49,7 @@ export const services: Service[] = [
       "Lighting and electrical works",
       "Finishes and decorations"
     ],
-    image: "/images/services/interior-fit-out.jpg",
+    image: "/images/services/interior-fit-out.png",
   },
   {
     slug: "mep-works",
@@ -66,7 +66,7 @@ export const services: Service[] = [
       "Energy efficiency solutions",
       "Maintenance and servicing"
     ],
-    image: "/images/services/mep-works.jpg",
+    image: "/images/services/mep-works.png",
   },
   {
     slug: "technical-drawings",
@@ -83,7 +83,7 @@ export const services: Service[] = [
       "As-built drawings and documentation",
       "Authority approval submissions"
     ],
-    image: "/images/services/technical-drawings.jpg",
+    image: "/images/services/technical-drawings.png",
   },
   {
     slug: "project-management",
@@ -100,7 +100,7 @@ export const services: Service[] = [
       "Risk management",
       "Project handover and closure"
     ],
-    image: "/images/services/project-management.jpg",
+    image: "/images/services/project-management.png",
   },
   {
     slug: "fit-out-approvals",
@@ -117,7 +117,7 @@ export const services: Service[] = [
       "Documentation and submissions",
       "Approval follow-up and coordination"
     ],
-    image: "/images/services/fit-out-approvals.jpg",
+    image: "/images/services/fit-out-approvals.png",
   },
   {
     slug: "joinery",
@@ -134,7 +134,7 @@ export const services: Service[] = [
       "Installation and fitting",
       "Repair and restoration services"
     ],
-    image: "/images/services/joinery.jpg",
+    image: "/images/services/joinery.png",
   },
 ];
 

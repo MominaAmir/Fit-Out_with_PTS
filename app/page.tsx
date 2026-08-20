@@ -2,34 +2,12 @@
 
 import Link from "next/link";
 import ServiceIcon from "@/components/ServiceIcon";
+import Particles from "@/components/Particles";
 import { company, processSteps, services, stats, yearsExperience, sectors } from "@/lib/data";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
-  // Use fixed values instead of random ones
-  const particles = [
-    { left: 10, delay: 0.5, duration: 8, width: 3, height: 3 },
-    { left: 20, delay: 1.2, duration: 7, width: 4, height: 4 },
-    { left: 30, delay: 2.8, duration: 9, width: 2, height: 2 },
-    { left: 40, delay: 0.8, duration: 6, width: 5, height: 3 },
-    { left: 50, delay: 3.5, duration: 10, width: 3, height: 5 },
-    { left: 60, delay: 1.5, duration: 7.5, width: 4, height: 2 },
-    { left: 70, delay: 4.2, duration: 8.5, width: 2, height: 4 },
-    { left: 80, delay: 0.3, duration: 9.5, width: 3, height: 3 },
-    { left: 90, delay: 2.1, duration: 6.5, width: 5, height: 5 },
-    { left: 15, delay: 3.8, duration: 7, width: 2, height: 3 },
-    { left: 25, delay: 0.7, duration: 8.5, width: 4, height: 4 },
-    { left: 35, delay: 4.5, duration: 9, width: 3, height: 2 },
-    { left: 45, delay: 1.8, duration: 6.5, width: 4, height: 3 },
-    { left: 55, delay: 2.5, duration: 8, width: 2, height: 5 },
-    { left: 65, delay: 0.9, duration: 7.5, width: 3, height: 4 },
-    { left: 75, delay: 3.2, duration: 9.5, width: 5, height: 2 },
-    { left: 85, delay: 1.1, duration: 6, width: 2, height: 3 },
-    { left: 95, delay: 4.8, duration: 8, width: 4, height: 4 },
-    { left: 12, delay: 2.2, duration: 7.5, width: 3, height: 2 },
-    { left: 88, delay: 3.9, duration: 9, width: 4, height: 3 },
-  ];
 
   useEffect(() => {
     setIsVisible(true);
@@ -42,7 +20,7 @@ export default function Home() {
         {/* Background photo */}
         <div
           className="hero-bg-image absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
+          style={{ backgroundImage: "url('/images/hero-bg.png')" }}
         />
         
         {/* Enhanced dark gradient overlay */}
@@ -65,22 +43,8 @@ export default function Home() {
           }}
         />
 
-        {/* Particle background - FIXED: using fixed values instead of random */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {particles.map((particle, i) => (
-            <div
-              key={i}
-              className="particle-dot"
-              style={{
-                left: `${particle.left}%`,
-                animationDelay: `${particle.delay}s`,
-                animationDuration: `${particle.duration}s`,
-                width: `${particle.width}px`,
-                height: `${particle.height}px`,
-              }}
-            />
-          ))}
-        </div>
+        {/* Particles */}
+        <Particles count={20} />
 
         <div className="relative mx-auto grid max-w-6xl gap-16 px-6 py-24 md:py-32 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           {/* Left: copy */}
@@ -248,56 +212,14 @@ export default function Home() {
           </div>
         </div>
       </section>
-   {/* ===== STATS SECTION - ANIMATED ===== */}
-      <section className="relative overflow-hidden bg-paper py-20">
-        {/* Background with gradient and pattern */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-paper via-white to-paper" />
-          <div className="absolute inset-0 blueprint-grid-dim opacity-30" />
-          <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-orange/5 blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-indigo/5 blur-3xl" />
-        </div>
 
-        <div className="relative mx-auto max-w-6xl px-6">
-          {/* Section Header */}
-          <div className="mb-12 text-center">
-            <span className="font-technical text-xs font-medium uppercase tracking-[0.25em] text-orange">
-              Our track record
-            </span>
-            <div className="flex items-center justify-center gap-4">
-              <div className="h-px w-12 bg-line" />
-              <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
-                By the numbers
-              </h2>
-              <div className="h-px w-12 bg-line" />
-            </div>
-            <p className="mt-2 text-sm text-ink/40">
-              Watch our impact grow in real-time
-            </p>
-          </div>
-
-          {/* Stats Grid with Animation */}
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {stats.map((stat, index) => (
-              <AnimatedStat
-                key={stat.label}
-                value={stat.value}
-                label={stat.label}
-                index={index}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
       {/* ===== SERVICES SECTION - PREMIUM DESIGN ===== */}
       <section className="relative overflow-hidden bg-paper py-24">
-        {/* Section background */}
         <div className="absolute inset-0 blueprint-grid-dim opacity-20" />
         <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-orange/5 blur-3xl" />
         <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-indigo/5 blur-3xl" />
         
         <div className="relative mx-auto max-w-7xl px-6">
-          {/* Section Header */}
           <div className="mb-16 text-center">
             <div className="inline-block">
               <span className="font-technical text-xs uppercase tracking-widest text-orange">
@@ -315,7 +237,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Services Grid - Premium Cards with Background Images */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
               <Link
@@ -327,48 +248,36 @@ export default function Home() {
                   height: '420px'
                 }}
               >
-                {/* Background Image */}
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
                   style={{ 
-                    backgroundImage: `url(${service.image || '/images/services/default-bg.jpg'})`,
+                    backgroundImage: `url(${service.image || '/images/services/default-bg.png'})`,
                   }}
                 />
                 
-                {/* Dark Gradient Overlay - Multi-layered for depth */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 transition-opacity duration-500 group-hover:from-black/95 group-hover:via-black/60" />
-                
-                {/* Subtle gradient accent */}
                 <div className="absolute inset-0 bg-gradient-to-br from-orange/10 via-transparent to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
-                
-                {/* Decorative corner glow */}
                 <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-orange/20 blur-2xl opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
                 
-                {/* Content Container */}
                 <div className="relative flex h-full flex-col justify-end p-8">
-                  {/* Service Number */}
                   <div className="absolute right-6 top-6 font-technical text-6xl font-bold text-white/5 transition-all duration-500 group-hover:text-white/10 group-hover:scale-110">
                     {String(index + 1).padStart(2, '0')}
                   </div>
 
-                  {/* Icon with animated ring */}
                   <div className="mb-4 flex items-center gap-4">
                     <div className="relative">
                       <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm text-white transition-all duration-500 group-hover:bg-orange group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-orange/30">
                         <ServiceIcon icon={service.icon} />
                       </div>
-                      {/* Pulsing ring */}
                       <div className="absolute inset-0 rounded-2xl border-2 border-white/0 transition-all duration-500 group-hover:border-orange/40 group-hover:scale-150" />
                       <div className="absolute inset-0 rounded-2xl bg-orange/20 opacity-0 transition-all duration-700 group-hover:opacity-100 group-hover:scale-[1.8]" />
                     </div>
                     
-                    {/* Category badge */}
                     <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-white/70 backdrop-blur-sm transition-all duration-300 group-hover:bg-orange/20 group-hover:text-orange-light">
                       Service {String(index + 1)}
                     </span>
                   </div>
 
-                  {/* Title & Description */}
                   <div className="transform transition-all duration-500 group-hover:translate-y-0">
                     <h3 className="font-display text-2xl font-semibold text-white transition-colors duration-300 group-hover:text-orange-light">
                       {service.title}
@@ -378,7 +287,6 @@ export default function Home() {
                       {service.shortDescription}
                     </p>
                     
-                    {/* Feature Tags */}
                     {service.features && (
                       <div className="mt-4 flex flex-wrap gap-2">
                         {service.features.slice(0, 3).map((feature) => (
@@ -393,10 +301,8 @@ export default function Home() {
                     )}
                   </div>
 
-                  {/* Animated bottom bar */}
                   <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-orange to-orange-light transition-all duration-700 group-hover:w-full" />
                   
-                  {/* Learn More Indicator - Slides up on hover */}
                   <div className="mt-6 flex items-center gap-2 text-sm font-medium text-orange-light opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:gap-4">
                     <span>Explore Service</span>
                     <svg
@@ -411,7 +317,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Hover border glow */}
                 <div className="absolute inset-0 rounded-2xl border-2 border-white/0 transition-all duration-500 group-hover:border-orange/30" />
               </Link>
             ))}
@@ -419,15 +324,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== PROCESS SECTION - REDESIGNED ===== */}
+      {/* ===== PROCESS SECTION ===== */}
       <section className="relative overflow-hidden bg-white py-24">
-        {/* Background elements */}
         <div className="absolute inset-0 blueprint-grid-dim opacity-20" />
         <div className="absolute -right-20 top-20 h-96 w-96 rounded-full bg-orange/5 blur-3xl" />
         <div className="absolute -left-20 bottom-20 h-96 w-96 rounded-full bg-indigo/5 blur-3xl" />
         
         <div className="relative mx-auto max-w-6xl px-6">
-          {/* Section Header - Clean & Professional */}
           <div className="mb-16 text-center">
             <div className="inline-block">
               <span className="font-technical text-xs font-medium uppercase tracking-[0.2em] text-orange">
@@ -459,29 +362,24 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Process Steps - Clean Card Design */}
           <div className="grid gap-8 md:grid-cols-3">
             {processSteps.map((step, index) => (
               <div
                 key={step.title}
                 className="group relative rounded-2xl border border-line bg-white p-8 transition-all duration-500 hover:border-orange/30 hover:shadow-xl hover:-translate-y-2"
               >
-                {/* Step Number - Large Background */}
                 <div className="absolute -right-4 -top-4 font-technical text-8xl font-bold text-ink/5 transition-all duration-500 group-hover:text-orange/10 group-hover:scale-110">
                   {String(index + 1).padStart(2, '0')}
                 </div>
 
-                {/* Decorative Line */}
                 <div className="absolute left-0 top-0 h-1 w-12 bg-orange transition-all duration-500 group-hover:w-full" />
 
-                {/* Icon or Number Circle */}
                 <div className="relative mb-6 mt-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-orange/20 bg-orange/5 transition-all duration-500 group-hover:border-orange group-hover:bg-orange group-hover:shadow-lg group-hover:shadow-orange/20">
                   <span className="font-technical text-xl font-bold text-orange transition-all duration-500 group-hover:text-white">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                 </div>
 
-                {/* Content */}
                 <h3 className="font-display text-2xl font-semibold text-ink transition-colors duration-300 group-hover:text-orange">
                   {step.title}
                 </h3>
@@ -492,14 +390,12 @@ export default function Home() {
                   {step.description}
                 </p>
 
-                {/* Step Counter */}
                 <div className="mt-6 flex items-center gap-2 text-sm font-medium text-orange/50">
                   <span className="font-technical text-xs uppercase tracking-wider">
                     Step {String(index + 1)} of {processSteps.length}
                   </span>
                 </div>
 
-                {/* Animated Progress Bar */}
                 <div className="mt-4 h-1 w-full overflow-hidden rounded-full bg-paper-dim">
                   <div className="h-full w-0 rounded-full bg-gradient-to-r from-orange to-orange-light transition-all duration-1000 group-hover:w-full" />
                 </div>
@@ -507,7 +403,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Bottom CTA - Subtle */}
           <div className="mt-16 text-center">
             <div className="inline-flex items-center gap-6 rounded-full border border-line bg-white px-8 py-4 shadow-sm transition-all duration-300 hover:shadow-md">
               <span className="text-sm text-ink/60">
@@ -533,12 +428,48 @@ export default function Home() {
         </div>
       </section>
 
-   
+      {/* ===== STATS SECTION - ANIMATED ===== */}
+      <section className="relative overflow-hidden bg-paper py-20">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-paper via-white to-paper" />
+          <div className="absolute inset-0 blueprint-grid-dim opacity-30" />
+          <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-orange/5 blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-indigo/5 blur-3xl" />
+        </div>
 
-      {/* ===== SECTORS SECTION - ICON GRID ===== */}
+        <div className="relative mx-auto max-w-6xl px-6">
+          <div className="mb-12 text-center">
+            <span className="font-technical text-xs font-medium uppercase tracking-[0.25em] text-orange">
+              Our track record
+            </span>
+            <div className="flex items-center justify-center gap-4">
+              <div className="h-px w-12 bg-line" />
+              <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
+                By the numbers
+              </h2>
+              <div className="h-px w-12 bg-line" />
+            </div>
+            <p className="mt-2 text-sm text-ink/40">
+              Watch our impact grow in real-time
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            {stats.map((stat, index) => (
+              <AnimatedStat
+                key={stat.label}
+                value={stat.value}
+                label={stat.label}
+                index={index}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== SECTORS SECTION ===== */}
       <section className="relative overflow-hidden bg-white py-24">
         <div className="mx-auto max-w-6xl px-6">
-          {/* Section Header */}
           <div className="mb-16 text-center">
             <span className="font-technical text-xs font-medium uppercase tracking-[0.25em] text-orange">
               Industries we serve
@@ -549,7 +480,6 @@ export default function Home() {
             <div className="mx-auto mt-4 h-px w-16 bg-orange/30" />
           </div>
 
-          {/* Sectors with Icons */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {sectors.map((sector, index) => {
               const icons = {
@@ -568,27 +498,22 @@ export default function Home() {
                   key={sector}
                   className="group relative rounded-2xl border border-line bg-paper p-8 text-center transition-all duration-500 hover:border-orange/30 hover:shadow-xl hover:-translate-y-2"
                 >
-                  {/* Icon */}
                   <div className="mb-4 text-4xl transition-transform duration-500 group-hover:scale-110">
                     {icons[sector as keyof typeof icons] || '📍'}
                   </div>
                   
-                  {/* Sector Name */}
                   <h3 className="font-display text-lg font-semibold text-ink transition-colors duration-300 group-hover:text-orange">
                     {sector}
                   </h3>
                   
-                  {/* Decorative line */}
                   <div className="mx-auto mt-3 h-0.5 w-8 bg-orange/20 transition-all duration-500 group-hover:w-12 group-hover:bg-orange" />
                   
-                  {/* Background glow on hover */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </div>
               );
             })}
           </div>
 
-          {/* Bottom CTA */}
           <div className="mt-16 text-center">
             <div className="inline-block rounded-full border border-line bg-white px-8 py-4 shadow-sm transition-all duration-300 hover:shadow-md">
               <span className="text-sm text-ink/60">
@@ -614,166 +539,29 @@ export default function Home() {
         </div>
       </section>
 
-
-{/* ===== CTA SECTION - REDESIGNED PREMIUM ===== */}
-<section className="relative overflow-hidden">
-  {/* Sticky Background Image Container */}
-  <div className="absolute inset-0">
-    {/* Background Image with parallax effect */}
-    <div 
-      className="absolute inset-0 bg-cover bg-center bg-fixed"
-      style={{ 
-        backgroundImage: "url('/images/cta-bg.png')",
-      }}
-    />
-    {/* Overlay Gradient */}
-    <div className="absolute inset-0 bg-gradient-to-br from-indigo/95 via-indigo/85 to-indigo/90" />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
-    
-    {/* Orange accent glow */}
-    <div className="absolute -bottom-40 -right-40 h-[600px] w-[600px] rounded-full bg-orange/20 blur-3xl" />
-    <div className="absolute -top-40 -left-40 h-[400px] w-[400px] rounded-full bg-orange/10 blur-3xl" />
-    
-    {/* Blueprint grid overlay */}
-    <div className="absolute inset-0 blueprint-grid opacity-10" />
-    
-    {/* Animated particles */}
-    <div className="absolute inset-0 overflow-hidden opacity-20">
-      {[...Array(20)].map((_, i) => (
-        <div
-          key={i}
-          className="absolute rounded-full bg-white"
-          style={{
-            width: `${2 + Math.random() * 4}px`,
-            height: `${2 + Math.random() * 4}px`,
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            animation: `floatParticle ${8 + Math.random() * 12}s ease-in-out infinite`,
-            animationDelay: `${Math.random() * 8}s`,
-            opacity: 0.1 + Math.random() * 0.3
-          }}
-        />
-      ))}
-    </div>
-  </div>
-
-  {/* Content */}
-  <div className="relative mx-auto max-w-6xl px-6 py-32 md:py-40">
-    <div className="text-center">
-      {/* Small badge - New addition */}
-      <div className="mb-6 inline-block">
-        <span className="inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-orange-light backdrop-blur-sm">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-orange" />
-          </span>
-          Let's Build Together
-        </span>
-      </div>
-
-      {/* Main Heading - Enhanced */}
-      <h2 className="font-display text-4xl font-semibold text-white md:text-5xl lg:text-6xl">
-        Have a project{' '}
-        <span className="relative inline-block">
-          <span className="gradient-text">in mind?</span>
-          {/* Animated underline */}
-          <svg
-            className="absolute -bottom-2 left-0 w-full pulse-glow"
-            viewBox="0 0 200 8"
-            preserveAspectRatio="none"
+      {/* ===== CTA SECTION ===== */}
+      <section className="bg-indigo relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-orange/20 to-transparent" />
+          <div className="absolute bottom-0 right-0 w-1/2 h-full bg-gradient-to-l from-sky/20 to-transparent" />
+        </div>
+        <div className="mx-auto max-w-6xl px-6 py-20 text-center relative">
+          <h2 className="font-display text-3xl font-semibold text-white md:text-4xl">
+            Have a project in mind?
+          </h2>
+          <p className="mx-auto mt-3 max-w-md text-white/60">
+            Tell us the scope and we'll come back with a plan — drawings included.
+          </p>
+          <Link
+            href="/contact"
+            className="group mt-8 inline-block relative overflow-hidden rounded-md bg-orange px-8 py-3.5 font-display text-sm font-semibold text-white transition-all hover:scale-105 hover:shadow-2xl hover:shadow-orange/25"
           >
-            <path
-              d="M2 4 Q 50 0 100 4 T 198 3"
-              fill="none"
-              stroke="var(--color-orange)"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              opacity="0.6"
-            />
-          </svg>
-        </span>
-      </h2>
-
-      {/* Description - Enhanced with better copy */}
-      <p className="mx-auto mt-6 max-w-2xl text-lg text-white/70">
-        Tell us the scope and we'll come back with a plan — drawings included. 
-        From concept to completion, we handle it all.
-      </p>
-
-      {/* Trust indicators - New addition */}
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-white/40">
-        <span className="flex items-center gap-2">
-          <svg className="h-4 w-4 text-orange" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-          </svg>
-          {yearsExperience}+ Years Experience
-        </span>
-        <span className="h-4 w-px bg-white/10" />
-        <span className="flex items-center gap-2">
-          <svg className="h-4 w-4 text-orange" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-          </svg>
-          120+ Projects Delivered
-        </span>
-        <span className="h-4 w-px bg-white/10" />
-        <span className="flex items-center gap-2">
-          <svg className="h-4 w-4 text-orange" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-          </svg>
-          Dubai Licensed
-        </span>
-      </div>
-
-      {/* CTA Buttons - Enhanced */}
-      <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-        <Link
-          href="/contact"
-          className="group relative inline-flex items-center gap-3 overflow-hidden rounded-lg bg-orange px-8 py-4 font-display text-sm font-semibold text-white shadow-lg shadow-orange/25 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange/40 active:scale-95"
-        >
-          {/* Button background animation */}
-          <span className="absolute inset-0 bg-gradient-to-r from-orange-light to-orange opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-          
-          {/* Button content */}
-          <span className="relative z-10 flex items-center gap-3">
-            <svg
-              className="h-5 w-5 transition-transform duration-300 group-hover:rotate-12"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2.5"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-            </svg>
-            Request a Quote
-          </span>
-          
-          {/* Shine effect */}
-          <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-        </Link>
-
-        <Link
-          href="/portfolio"
-          className="group inline-flex items-center gap-2 rounded-lg border border-white/20 px-8 py-4 font-display text-sm font-semibold text-white transition-all duration-300 hover:border-white/50 hover:bg-white/5 hover:scale-105"
-        >
-          <svg
-            className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2.5"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
-            <path strokeLinecap="round" strokeLinejoin="round" d="M14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6z" />
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2z" />
-            <path strokeLinecap="round" strokeLinejoin="round" d="M14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-          </svg>
-          View Our Work
-          <span className="opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">→</span>
-        </Link>
-      </div>
-    </div>
-  </div>
-</section>
+            <span className="relative z-10">Request a Quote</span>
+            <span className="absolute inset-0 bg-gradient-to-r from-orange-light to-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+          </Link>
+        </div>
+      </section>
     </>
   );
 }
@@ -852,26 +640,21 @@ function AnimatedStat({ value, label, index }: { value: string; label: string; i
       className="group relative rounded-2xl border border-line bg-white/80 backdrop-blur-sm p-6 text-center transition-all duration-500 hover:border-orange/30 hover:shadow-xl hover:-translate-y-1 hover:bg-white"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
-      {/* Background glow on hover */}
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-      {/* Icon */}
       <div className="relative mb-3 text-3xl transition-transform duration-500 group-hover:scale-110">
         {icons[label] || '📊'}
       </div>
 
-      {/* Number with animation */}
       <div className="relative font-display text-3xl font-bold text-indigo md:text-4xl transition-all duration-500 group-hover:text-orange">
         {isVisible ? count : 0}
         {suffix}
       </div>
 
-      {/* Label */}
       <div className="relative mt-1 text-xs font-medium text-ink/50">
         {label}
       </div>
 
-      {/* Decorative bottom bar */}
       <div className="relative mx-auto mt-3 h-0.5 w-6 bg-orange/20 transition-all duration-500 group-hover:w-10 group-hover:bg-orange" />
     </div>
   );

@@ -1331,3 +1331,25 @@ h4,
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
+
+/* ===== PARTICLE ANIMATIONS ===== */
+
+@keyframes floatParticle {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-100px) scale(2);
+    opacity: 0.4;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .particle-dot,
+  .absolute.rounded-full.bg-white {
+    animation: none !important;
+    display: none !important;
+  }
+}

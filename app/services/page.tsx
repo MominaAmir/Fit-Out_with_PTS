@@ -20,7 +20,7 @@ export default function Services() {
           <div 
             className="absolute inset-0 bg-cover bg-center bg-fixed"
             style={{ 
-              backgroundImage: "url('/images/services-hero-bg.jpg')",
+              backgroundImage: "url('/images/services-hero-bg.png')",
             }}
           />
           {/* Overlay Gradients */}

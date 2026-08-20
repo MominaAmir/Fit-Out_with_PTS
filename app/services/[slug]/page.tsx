@@ -37,7 +37,7 @@ export default async function ServiceDetail({ params }: Params) {
           <div 
             className="absolute inset-0 bg-cover bg-center bg-fixed"
             style={{ 
-              backgroundImage: `url('/images/service-${service.slug}-bg.jpg')`,
+              backgroundImage: `url('/images/service-${service.slug}-bg.png')`,
             }}
           />
           {/* Overlay Gradients */}

@@ -2,23 +2,17 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import Particles from "@/components/Particles";
 import { company, navLinks, services, yearsExperience } from "@/lib/data";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle newsletter subscription
     console.log("Subscribed:", email);
     setEmail("");
-    // Show success message
     alert("Thank you for subscribing!");
   };
 
@@ -30,43 +24,19 @@ export default function Footer() {
     <footer className="relative overflow-hidden bg-indigo text-white">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
-        {/* Blueprint Grid */}
         <div className="absolute inset-0 blueprint-grid opacity-10" />
-        
-        {/* Gradient Orbs */}
         <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-orange/10 blur-3xl animate-float-slow" />
         <div className="absolute -left-40 -bottom-40 h-96 w-96 rounded-full bg-sky/10 blur-3xl animate-float-slow" style={{ animationDelay: '2s' }} />
-        
-        {/* Animated Gradient Line */}
         <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-orange/20 to-transparent" />
         
-        {/* Floating Particles */}
-        <div className="absolute inset-0 overflow-hidden opacity-20">
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full bg-white"
-              style={{
-                width: `${2 + Math.random() * 4}px`,
-                height: `${2 + Math.random() * 4}px`,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                animation: `floatParticle ${10 + Math.random() * 15}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 10}s`,
-                opacity: 0.1 + Math.random() * 0.3
-              }}
-            />
-          ))}
-        </div>
+        <Particles count={15} />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-6 py-16">
         {/* Main Footer Grid */}
         <div className="grid gap-12 md:grid-cols-4">
-          {/* Brand Column - With Logo */}
           <div className="md:col-span-1">
             <div className="mb-4 flex items-center gap-3">
-              {/* PTS Logo Image */}
               <div className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-xl bg-white/10 shadow-lg shadow-orange/10 transition-all duration-500 hover:shadow-orange/20 hover:scale-105">
                 <Image
                   src="/images/logo-icon.png"
@@ -76,7 +46,6 @@ export default function Footer() {
                   className="object-contain transition-transform duration-300"
                   priority
                 />
-                {/* Glow ring on hover */}
                 <div className="absolute -inset-1 rounded-xl border-2 border-orange/0 transition-all duration-500 group-hover:border-orange/30" />
               </div>
               
@@ -95,49 +64,26 @@ export default function Footer() {
               services across Dubai. Design, drawings, approvals and execution — end to end.
             </p>
             
-            {/* Social Links - Enhanced */}
             <div className="mt-6 flex gap-2">
-              <SocialLink 
-                href="#" 
-                icon="linkedin" 
-                label="LinkedIn"
-              />
-              <SocialLink 
-                href="#" 
-                icon="instagram" 
-                label="Instagram"
-              />
-              <SocialLink 
-                href="#" 
-                icon="facebook" 
-                label="Facebook"
-              />
-              <SocialLink 
-                href="#" 
-                icon="youtube" 
-                label="YouTube"
-              />
-              <SocialLink 
-                href="#" 
-                icon="twitter" 
-                label="Twitter/X"
-              />
+              <SocialLink href="#" icon="linkedin" label="LinkedIn" />
+              <SocialLink href="#" icon="instagram" label="Instagram" />
+              <SocialLink href="#" icon="facebook" label="Facebook" />
+              <SocialLink href="#" icon="youtube" label="YouTube" />
+              <SocialLink href="#" icon="twitter" label="Twitter/X" />
             </div>
           </div>
 
-          {/* Navigate Column */}
           <div>
             <h3 className="font-technical mb-4 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-orange-light">
               <span className="h-px w-4 bg-orange/30" />
               Navigate
             </h3>
             <ul className="space-y-3 text-sm">
-              {navLinks.map((link, index) => (
+              {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     className="group flex items-center gap-2 text-white/60 transition-all duration-300 hover:text-white hover:translate-x-1"
-                    style={{ animationDelay: `${index * 0.05}s` }}
                   >
                     <span className="h-1 w-1 rounded-full bg-orange/30 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:bg-orange group-hover:scale-150" />
                     {link.label}
@@ -147,19 +93,17 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services Column */}
           <div>
             <h3 className="font-technical mb-4 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-orange-light">
               <span className="h-px w-4 bg-orange/30" />
               Services
             </h3>
             <ul className="space-y-3 text-sm">
-              {services.slice(0, 5).map((s, index) => (
+              {services.slice(0, 5).map((s) => (
                 <li key={s.slug}>
                   <Link
                     href={`/services/${s.slug}`}
                     className="group flex items-center gap-2 text-white/60 transition-all duration-300 hover:text-white hover:translate-x-1"
-                    style={{ animationDelay: `${index * 0.05}s` }}
                   >
                     <span className="h-1 w-1 rounded-full bg-orange/30 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:bg-orange group-hover:scale-150" />
                     {s.title}
@@ -169,7 +113,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Column */}
           <div>
             <h3 className="font-technical mb-4 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-orange-light">
               <span className="h-px w-4 bg-orange/30" />
@@ -215,7 +158,30 @@ export default function Footer() {
               </li>
             </ul>
 
-            
+            <div className="mt-6">
+              <p className="mb-2 text-xs text-white/40 flex items-center gap-2">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange animate-pulse" />
+                Subscribe to our newsletter
+              </p>
+              <form onSubmit={handleSubscribe} className="flex w-full">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="flex-1 min-w-0 rounded-l-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-white/30 outline-none transition-all duration-300 focus:border-orange/50 focus:bg-white/10 focus:shadow-lg focus:shadow-orange/5"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="group relative overflow-hidden rounded-r-lg bg-orange px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-orange-light hover:scale-105 active:scale-95 whitespace-nowrap"
+                >
+                  <span className="relative z-10">Subscribe</span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-orange-light to-orange opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                </button>
+              </form>
+            </div>
           </div>
         </div>
 
@@ -240,7 +206,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Back to Top Button - Fixed Position */}
+        {/* Back to Top Button */}
         <div className="flex justify-end mt-8">
           <button
             onClick={scrollToTop}
