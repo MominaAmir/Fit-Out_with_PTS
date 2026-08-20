@@ -20,7 +20,7 @@ export default function Home() {
         {/* Background photo */}
         <div
           className="hero-bg-image absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
+          style={{ backgroundImage: "url('/images/hero-bg.png')" }}
         />
         
         {/* Enhanced dark gradient overlay */}
